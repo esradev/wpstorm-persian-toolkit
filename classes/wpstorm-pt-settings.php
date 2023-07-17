@@ -6,6 +6,36 @@
 class Wpstorm_PT_Settings {
 
     /**
+     * Register the stylesheets for the admin area.
+     *
+     * @since 1.0.0
+     */
+    public function admin_enqueue_styles()
+    {
+            wp_enqueue_style('wpstorm-notify-style', WPSTORM_PT_URL . 'build/index.css', [], WPSTORM_PT_VERSION);
+    }
+
+    /**
+     * Register the JavaScript for the admin area.
+     *
+     * @since 1.0.0
+     */
+    public function admin_enqueue_scripts($hook)
+    {
+        wp_enqueue_script(
+            'wpstorm-notify-script',
+            WPSTORM_PT_URL . 'build/index.js',
+            [
+                'wp-element',
+                'wp-i18n',
+            ],
+            WPSTORM_PT_VERSION,
+            true
+        );
+
+    }
+
+    /**
      * Add submenu page for the plugin settings.
      */
     public function init_menu()
@@ -19,7 +49,7 @@ class Wpstorm_PT_Settings {
                 $this,
                 'render_settings_page',
             ],
-            'dashicons-testimonial',
+            'dashicons-superhero',
             100
         );
         add_submenu_page(
@@ -42,8 +72,7 @@ class Wpstorm_PT_Settings {
     public function render_settings_page() {
         ?>
         <div class="wrap">
-            <h1><?php echo esc_html__('Wpstorm Persian Toolkit Settings', 'wpstorm-persian-toolkit'); ?></h1>
-            <!-- Add your settings page content here -->
+            <div id="wpstorm-persian-toolkit-admin"></div>
         </div>
         <?php
     }
