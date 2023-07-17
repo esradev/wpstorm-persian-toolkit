@@ -1,5 +1,5 @@
-import Settings from "../components/Settings"
-import Login from "../components/Login"
+import Settings from "../pages/Settings"
+import Login from "../pages/Login"
 
 const SidebarRoutes = [
     {

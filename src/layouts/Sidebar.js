@@ -10,7 +10,7 @@ const Sidebar = () => {
     };
 
     return (
-        <aside className={`${isSidebarOpen ? 'w-40' : ''} flex-shrink-0 bg-gray-900 text-gray-100 shadow-md`}>
+        <aside className="flex-shrink-0 bg-gray-900 text-gray-100 shadow-md">
             <div className="p-4">
                 <div className="flex items-center justify-between">
                     <button

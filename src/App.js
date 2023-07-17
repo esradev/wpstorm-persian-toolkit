@@ -12,7 +12,7 @@ const App = () => {
                 <Header />
                 <div className="flex flex-grow">
                     <Sidebar />
-                    <div className="flex-grow bg-green-50 p-4">
+                    <div className="flex-grow bg-gray-50 p-4">
                         <Routes>
                                 {SidebarRoutes.map((route, index) => (
                                     <Route
