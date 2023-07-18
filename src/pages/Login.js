@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Login = () => {
+import Page from "../components/Page";
+
+const Login = ({
+    label
+               }) => {
     return (
-        <div>
-            this is the Login section.
-        </div>
+        <Page pageLabel={label}/>
     );
 };
 

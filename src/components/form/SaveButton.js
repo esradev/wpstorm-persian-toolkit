@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 
 const SaveButton = ({
-    text, sendingText, doneText
+    text, sendingText, doneText, errorText
                     }) => {
     const [buttonState, setButtonState] = useState('idle');
 
     const handleButtonClick = () => {
         setButtonState('sending');
         setTimeout(() => setButtonState('done'), 4000);
+        // setTimeout(() => setButtonState('error'), 4000);
         setTimeout(() => setButtonState('idle'), 6000);
     };
 
@@ -17,7 +18,7 @@ const SaveButton = ({
                 return (
                     <>
                         <svg
-                            className="animate-spin mr-2 h-5 w-5 text-white"
+                            className="animate-spin mr-2 h-7 w-7 text-white justify-center"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
@@ -42,25 +43,29 @@ const SaveButton = ({
             case 'done':
                 return (
                     <>
-                        <svg
-                            className="h-5 w-5 text-white mr-2"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 -960 960 960"
-                            fill="currentColor"
-                        >
-                            <path d="m421-298 283-283-46-45-237 237-120-120-45 45 165 166Zm59 218q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-156t86-127Q252-817 325-848.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Zm0-60q142 0 241-99.5T820-480q0-142-99-241t-241-99q-141 0-240.5 99T140-480q0 141 99.5 240.5T480-140Zm0-340Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="justify-center w-7 h-7 mr-2 text-white">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
                         </svg>
                         <span>{doneText}</span>
                     </>
                 );
-            default:
+            case 'error':
+                return (
+                    <>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="justify-center w-7 h-7 mr-2 text-white">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+                        </svg>
+                        <span>{errorText}</span>
+                    </>
+                );
+                default:
                 return <span>{text}</span>;
         }
     };
 
     return (
         <button
-            className="flex px-4 py-2 bg-blue-500 text-white text-center justify-center focus:outline-none"
+            className={`${buttonState === 'sending' ? "bg-blue-400 " : buttonState === 'done' ? "bg-green-600 " : buttonState === "error" ? "bg-red-600" : "bg-blue-600 "} flex px-4 py-2 text-white text-center justify-center text-lg rounded-xl shadow-xl focus:outline-none`}
             onClick={handleButtonClick}
         >
             {renderButtonContent()}

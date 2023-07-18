@@ -1,9 +1,36 @@
 <?php
 /**
- * Class Wpstorm_PT_Elementor_Integration
+ * Class WPSTORM_TK_Elementor_Integration
  * Handles the integration of Persian fonts and icons with Elementor.
  */
-class Wpstorm_PT_Elementor_Integration {
+class WPSTORM_TK_Elementor_Integration {
+    /**
+     * Instance
+     *
+     * @access private
+     * @var object Class object.
+     * @since 1.0.0
+     */
+    private static $instance;
+
+    /**
+     * Initiator
+     *
+     * @return object Initialized object of class.
+     * @since 1.0.0
+     */
+    public static function get_instance()
+    {
+        if (!isset(self::$instance)) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+    public function __construct()
+    {
+        add_action('elementor/controls/controls_registered', [$this, 'register_controls']);
+    }
 
     /**
      * Register controls for Persian fonts and icons in Elementor.
@@ -22,7 +49,7 @@ class Wpstorm_PT_Elementor_Integration {
         $stack->start_controls_section(
             'section_persian_fonts',
             array(
-                'label' => __('Persian Fonts', 'wpstorm-persian-toolkit'),
+                'label' => __('Persian Fonts', 'wpstorm-tk'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             )
         );
@@ -42,7 +69,7 @@ class Wpstorm_PT_Elementor_Integration {
         $stack->start_controls_section(
             'section_persian_icons',
             array(
-                'label' => __('Persian Icons', 'wpstorm-persian-toolkit'),
+                'label' => __('Persian Icons', 'wpstorm-tk'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             )
         );
@@ -54,3 +81,4 @@ class Wpstorm_PT_Elementor_Integration {
     }
 
 }
+WPSTORM_TK_Elementor_Integration::get_instance();

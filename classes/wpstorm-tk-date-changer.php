@@ -1,9 +1,38 @@
 <?php
 /**
- * Class Wpstorm_PT_Date_Changer
+ * Class WPSTORM_TK_Date_Changer
  * Handles changing the date format from Gregorian to Solar.
  */
-class Wpstorm_PT_Date_Changer {
+class WPSTORM_TK_Date_Changer {
+    /**
+     * Instance
+     *
+     * @access private
+     * @var object Class object.
+     * @since 1.0.0
+     */
+    private static $instance;
+
+    /**
+     * Initiator
+     *
+     * @return object Initialized object of class.
+     * @since 1.0.0
+     */
+    public static function get_instance()
+    {
+        if (!isset(self::$instance)) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+
+
+    public function __construct()
+    {
+        add_filter('the_date', [$this, 'change_date_format'], 10, 2);
+    }
 
     /**
      * Change the date format from Gregorian to Solar.
@@ -64,3 +93,5 @@ class Wpstorm_PT_Date_Changer {
     }
 
 }
+
+WPSTORM_TK_Date_Changer::get_instance();

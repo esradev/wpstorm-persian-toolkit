@@ -7,5 +7,5 @@ ReactDOM.render(
     <React.StrictMode>
         <App />
     </React.StrictMode>,
-    document.getElementById('wpstorm-persian-toolkit-admin')
+    document.getElementById('wpstorm-tk-admin')
 );

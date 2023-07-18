@@ -3,22 +3,22 @@ import { NavLink } from 'react-router-dom';
 import SidebarRoutes from './SidebarRoutes';
 
 const Sidebar = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
+        setIsSidebarOpen(prevState => !prevState);
     };
 
     return (
-        <aside className="flex-shrink-0 bg-gray-900 text-gray-100 shadow-md">
-            <div className="p-4">
-                <div className="flex items-center justify-between">
+        <aside className="flex-shrink-0 bg-gray-100 text-gray-700 shadow-xl">
+            <div className="p-2 md:p-3">
+                <div className="flex items-center justify-between md:hidden">
                     <button
-                        className="text-gray-100 focus:outline-none md:hidden"
+                        className="text-gray-700 focus:outline-none"
                         onClick={toggleSidebar}
                     >
                         <svg
-                            className="h-6 w-6 fill-current"
+                            className="h-8 w-8 fill-current"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
                         >
@@ -38,16 +38,18 @@ const Sidebar = () => {
                         </svg>
                     </button>
                 </div>
-                <nav className={`mt-4 ${isSidebarOpen ? 'block' : 'hidden'} md:block`}>
+                <nav className={`mt-4 w-60 ${isSidebarOpen ? 'block' : 'hidden'} md:block`}>
                     <ul className="space-y-2">
                         {SidebarRoutes.map((route, index) => (
-                            <li key={index} className="p-4">
+                            <li key={index}>
                                 <NavLink
                                     to={route.path}
-                                    className="text-xl block px-4 py-1 rounded-md hover:bg-gray-700 hover:text-gray-100 transition duration-300"
-                                    activeClassName="bg-gray-700 text-gray-100"
+                                    className="text-xl font-bold flex px-4 py-2 rounded-md text-center hover:bg-gray-700 hover:text-gray-100 transition duration-300"
                                     onClick={toggleSidebar}
                                 >
+                                    <route.icon
+                                    className="h-7 w-7 mx-2"
+                                    />
                                     {route.label}
                                 </NavLink>
                             </li>
