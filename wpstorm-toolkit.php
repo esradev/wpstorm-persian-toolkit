@@ -51,10 +51,10 @@ class Wpstorm_Toolkit {
      */
     private function load_dependencies() {
         // Include additional files or classes here if needed.
-        require_once WPSTORM_TK_DIR . 'classes/wpstorm-pt-settings.php';
-        require_once WPSTORM_TK_DIR . 'classes/wpstorm-pt-date-changer.php';
-        require_once WPSTORM_TK_DIR . 'classes/wpstorm-pt-font-changer.php';
-        require_once WPSTORM_TK_DIR . 'classes/wpstorm-pt-elementor.php';
+        require_once WPSTORM_TK_DIR . 'classes/wpstorm-tk-settings.php';
+//        require_once WPSTORM_TK_DIR . 'classes/wpstorm-tk-date-changer.php';
+//        require_once WPSTORM_TK_DIR . 'classes/wpstorm-tk-font-changer.php';
+        require_once WPSTORM_TK_DIR . 'classes/wpstorm-tk-elementor.php';
     }
 }
 

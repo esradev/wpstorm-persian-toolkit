@@ -10,12 +10,12 @@ const SidebarRoutes = [
         component: Settings,
         icon: TbSettings2,
     },
-    {
-        path: '/login',
-        label: 'Login Settings',
-        component: Login,
-        icon: TbLogin,
-    },
+    // {
+    //     path: '/login',
+    //     label: 'Login Settings',
+    //     component: Login,
+    //     icon: TbLogin,
+    // },
 ]
 
 export default SidebarRoutes;

@@ -49,7 +49,7 @@ class WPSTORM_TK_Elementor_Integration {
         $stack->start_controls_section(
             'section_persian_fonts',
             array(
-                'label' => __('Persian Fonts', 'wpstorm-tk'),
+                'label' => __('Wpstorm Fonts', 'wpstorm-tk'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             )
         );
@@ -69,7 +69,7 @@ class WPSTORM_TK_Elementor_Integration {
         $stack->start_controls_section(
             'section_persian_icons',
             array(
-                'label' => __('Persian Icons', 'wpstorm-tk'),
+                'label' => __('Wpstorm Icons', 'wpstorm-tk'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             )
         );

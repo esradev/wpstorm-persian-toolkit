@@ -1,7 +1,7 @@
 <?php
 /**
  * Class WPSTORM_TK_Settings
- * Handles the settings page for Wpstorm Persian Toolkit.
+ * Handles the settings page for Wpstorm Toolkit.
  */
 class WPSTORM_TK_Settings {
     /**
@@ -84,8 +84,8 @@ class WPSTORM_TK_Settings {
     public function init_menu()
     {
         add_menu_page(
-            __('Wpstorm Persian Toolkit Settings', 'wpstorm-tk'),
-            __('Wpstorm Persian Toolkit', 'wpstorm-tk'),
+            __('Wpstorm Toolkit Settings', 'wpstorm-tk'),
+            __('Wpstorm Toolkit', 'wpstorm-tk'),
             'manage_options',
             WPSTORM_TK_SLUG,
             [
@@ -97,7 +97,7 @@ class WPSTORM_TK_Settings {
         );
         add_submenu_page(
             WPSTORM_TK_SLUG,
-            __('Wpstorm Persian Toolkit Settings', 'wpstorm-tk'),
+            __('Wpstorm Toolkit Settings', 'wpstorm-tk'),
             __('Settings', 'wpstorm-tk'),
             'manage_options',
             WPSTORM_TK_SLUG,

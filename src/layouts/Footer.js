@@ -1,4 +1,5 @@
 import React from 'react';
+import {__} from '@wordpress/i18n';
 
 const Footer = () => {
     return (
@@ -14,7 +15,7 @@ const Footer = () => {
                                 href="#"
                                 className="text-gray-100 hover:text-gray-900 transition duration-300"
                             >
-                                About
+                                {__('About','wpstorm-tk')}
                             </a>
                         </li>
                         <li>
@@ -22,7 +23,7 @@ const Footer = () => {
                                 href="#"
                                 className="text-gray-100 hover:text-gray-900 transition duration-300"
                             >
-                                Contact
+                                {__('Contact','wpstorm-tk')}
                             </a>
                         </li>
                         <li>
@@ -30,7 +31,7 @@ const Footer = () => {
                                 href="#"
                                 className="text-gray-100 hover:text-gray-900 transition duration-300"
                             >
-                                Privacy Policy
+                                {__('Privacy Policy','wpstorm-tk')}
                             </a>
                         </li>
                     </ul>
