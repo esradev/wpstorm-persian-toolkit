@@ -5,7 +5,7 @@ import SaveButton from "./SaveButton";
 const Form = ({
     inputs
               }) => {
-    const [toggleState, setToggleState] = useState(false);
+    const [toggleState, setToggleState] = useState(true);
 
 
     const handleFormSubmit = (e) => {

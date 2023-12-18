@@ -7,8 +7,7 @@ const SaveButton = ({
 
     const handleButtonClick = () => {
         setButtonState('sending');
-        setTimeout(() => setButtonState('done'), 4000);
-        // setTimeout(() => setButtonState('error'), 4000);
+        setTimeout(() => setButtonState('done'), 4000);        // setTimeout(() => setButtonState('error'), 4000);
         setTimeout(() => setButtonState('idle'), 6000);
     };
 
