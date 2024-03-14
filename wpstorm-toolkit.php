@@ -11,7 +11,11 @@
  * Text Domain: wpstorm-tk
  */
 
-if (!defined('ABSPATH')) {
+
+// this is just for test save file on nvim!
+// and this is just to more test !!
+
+if (!defined('ABSPATH')) 
     exit; // Exit if accessed directly.
 }
 
