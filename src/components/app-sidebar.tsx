@@ -1,17 +1,16 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 
-import { items } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { useSidebar } from "@/components/ui/sidebar";
+import { useIsMobile } from "@/hooks/use-mobile"
+import { useSidebar } from "@/components/ui/sidebar"
 
-export function AppSidebar() {
-  const isMobile = useIsMobile();
-  const { toggleSidebar } = useSidebar();
+export function AppSidebar({ side, items }) {
+  const isMobile = useIsMobile()
+  const { toggleSidebar } = useSidebar()
 
   return (
-    <Sidebar side="right">
+    <Sidebar side={side}>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Wpstorm Theme Settings</SidebarGroupLabel>
@@ -19,10 +18,15 @@ export function AppSidebar() {
             <SidebarMenu>
               {items.map(item => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink onClick={isMobile ? toggleSidebar : undefined} to={item.url} className={({ isActive, isPending }) => (isPending ? "pending " : isActive ? "text-blue-600 bg-gray-50 " : "text-gray-100 ") + "text-gray-100 hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"}>
-                      <item.icon />
-                      <span>{item.title}</span>
+                  <SidebarMenuButton asChild className="outline-none shadow-none hover:bg-transparent active:bg-transparent focus:bg-transparent">
+                    <NavLink onClick={isMobile ? toggleSidebar : undefined} to={item?.url}>
+                      {({ isActive }) => (
+                        <li className={`flex items-center gap-2 w-full px-3 py-2 text-sm font-medium text-gray-900 rounded-md ${isActive ? "bg-zinc-200" : ""}`}>
+                          {" "}
+                          <item.icon className="w-4 h-4" />
+                          {item?.title}
+                        </li>
+                      )}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -32,5 +36,5 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  );
+  )
 }

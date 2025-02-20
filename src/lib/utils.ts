@@ -1,12 +1,13 @@
-import { __ } from "@wordpress/i18n";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { __ } from "@wordpress/i18n"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
-import { Home, LogIn } from "lucide-react";
-import Settings from "@/pages/settings";
+import { Home, LogIn } from "lucide-react"
+import Settings from "@/pages/settings"
+import Datepicker from "@/pages/datepicker"
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 
 export const items = [
@@ -20,6 +21,6 @@ export const items = [
     title: __("Login", "payamito-plus"),
     url: "/login",
     icon: LogIn,
-    component: Settings
+    component: Datepicker
   }
-];
+]

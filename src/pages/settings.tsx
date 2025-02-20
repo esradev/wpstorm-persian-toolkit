@@ -1,7 +1,7 @@
-import { AppForm } from "@/components/app-form";
-import { z } from "zod";
+import { AppForm } from "@/components/app-form"
+import { z } from "zod"
 
-import { FormInput } from "@/types/form";
+import { FormInput } from "@/types/form"
 
 const Settings = () => {
   const formSchema = z.object({
@@ -9,13 +9,13 @@ const Settings = () => {
     bio: z.string().optional(),
     notifications: z.boolean(),
     theme: z.enum(["light", "dark"])
-  });
+  })
 
   const defaultValues = {
     username: "",
     bio: "",
     notifications: false
-  };
+  }
 
   const inputs: FormInput[] = [
     { name: "username", label: "Username", placeholder: "Enter your username", type: "text" },
@@ -31,14 +31,14 @@ const Settings = () => {
         { value: "dark", label: "Dark" }
       ]
     }
-  ];
+  ]
 
   const headerInfo = {
     title: "Settings",
     description: "Update your account settings."
-  };
+  }
 
-  return <AppForm schema={formSchema} defaultValues={defaultValues} inputs={inputs} headerInfo={headerInfo} />;
-};
+  return <AppForm schema={formSchema} defaultValues={defaultValues} inputs={inputs} headerInfo={headerInfo} />
+}
 
-export default Settings;
+export default Settings
