@@ -135,14 +135,6 @@ if (! class_exists('Settings')) {
 				WPSTORM_PT_SLUG,
 				[$this, 'admin_page']
 			);
-			add_submenu_page(
-				WPSTORM_PT_SLUG,
-				__('Payamito', 'wpstorm-pt'),
-				__('Login Notify', 'wpstorm-pt'),
-				'manage_options',
-				WPSTORM_PT_SLUG . '#/login-notify',
-				[$this, 'admin_page']
-			);
 		}
 
 		/**

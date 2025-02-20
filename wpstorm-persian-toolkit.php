@@ -8,7 +8,7 @@
  * Author: esradev
  * Author URI: https://wpstorm.ir
  * License: GPLv2 or later
- * Text Domain: wpstorm-persian-toolkit
+ * Text Domain: wpstorm-pt
  * Domain Path: /languages/
  * Requires at least: 5.0
  * Tested up to: 6.6.2

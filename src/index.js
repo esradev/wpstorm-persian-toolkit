@@ -5,10 +5,6 @@ import "./style.css";
 import App from "./app";
 
 const container = document.getElementById("wpstorm-pt-dashboard");
-if (!container) {
-  throw new Error("Container not found");
-}
-
 const root = createRoot(container);
 
 root.render(
