@@ -898,9 +898,6 @@ select {
 .top-8 {
   top: 2rem;
 }
-.z-10 {
-  z-index: 10;
-}
 .z-20 {
   z-index: 20;
 }
@@ -940,6 +937,9 @@ select {
 }
 .mt-2 {
   margin-top: 0.5rem;
+}
+.mt-8 {
+  margin-top: 2rem;
 }
 .block {
   display: block;
@@ -1245,6 +1245,9 @@ select {
 .border-zinc-200 {
   --tw-border-opacity: 1;
   border-color: rgb(228 228 231 / var(--tw-border-opacity, 1));
+}
+.bg-background {
+  background-color: hsl(var(--background));
 }
 .bg-background\/95 {
   background-color: hsl(var(--background) / 0.95);
@@ -2536,6 +2539,10 @@ select {
 
 @media (min-width: 768px) {
 
+  .md\:right-\[32px\] {
+    left: 32px;
+  }
+
   .md\:block {
     display: block;
   }
@@ -2602,6 +2609,10 @@ select {
 }
 
 @media (min-width: 1024px) {
+
+  .lg\:right-\[160px\] {
+    left: 160px;
+  }
 
   .lg\:inline-flex {
     display: inline-flex;
