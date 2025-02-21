@@ -1,41 +1,30 @@
+import { useState, useEffect } from "@wordpress/element"
 import { AppForm } from "@/components/app-form"
 import { z } from "zod"
 
-import { FormInput } from "@/types/form"
+import { AppFormProps, FormInput } from "@/types/form"
+import { getOptions } from "@/api/api-functions"
 
 const Settings = () => {
   const formSchema = z.object({
-    username: z.string().min(2, { message: "Username must be at least 2 characters." }),
-    bio: z.string().optional(),
-    notifications: z.boolean(),
-    theme: z.enum(["light", "dark"])
+    wordpress_core: z.boolean(),
+    woocommerce: z.boolean()
   })
 
   const defaultValues = {
-    username: "",
-    bio: "",
-    notifications: false
+    wordpress_core: false,
+    woocommerce: false
   }
 
   const inputs: FormInput[] = [
-    { name: "username", label: "Username", placeholder: "Enter your username", type: "text" },
-    { name: "bio", label: "Bio", placeholder: "Tell us about yourself", description: "Plase enter a short bio.", type: "textarea" },
-    { name: "notifications", label: "Enable Notifications", description: "Get all the latest updates and news.", type: "switch" },
-    {
-      name: "theme",
-      label: "Theme",
-      description: "Select your preferred theme.",
-      type: "select",
-      options: [
-        { value: "light", label: "Light" },
-        { value: "dark", label: "Dark" }
-      ]
-    }
+    { name: "wordpress_core", label: "WordPress Core", description: "Enable Jalali date and datepicker on WordPress core", type: "switch" },
+    { name: "woocommerce", label: "WooCommerce", description: "Enable Jalali date and datepicker on WooCommerce plugin", type: "switch" }
   ]
 
-  const headerInfo = {
+  const headerInfo: AppFormProps["headerInfo"] = {
     title: "Settings",
-    description: "Update your account settings."
+    description: "Update your account settings.",
+    restRoute: "jalali_date_options"
   }
 
   return <AppForm schema={formSchema} defaultValues={defaultValues} inputs={inputs} headerInfo={headerInfo} />

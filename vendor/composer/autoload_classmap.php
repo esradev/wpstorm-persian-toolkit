@@ -7,4 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'WpstormPersianToolkit\\Includes\\Core\\I18n' => $baseDir . '/includes/Core/I18n.php',
+    'WpstormPersianToolkit\\Includes\\Core\\Options' => $baseDir . '/includes/Core/Options.php',
+    'WpstormPersianToolkit\\Includes\\Core\\Routes' => $baseDir . '/includes/Core/Routes.php',
+    'WpstormPersianToolkit\\Includes\\Core\\Settings' => $baseDir . '/includes/Core/Settings.php',
 );

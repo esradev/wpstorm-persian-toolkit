@@ -9,12 +9,12 @@ class ComposerStaticInitff238b88e005219c5b24f34caf16d69c
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
-            'Wpstorm\\WpstormPersianToolkit\\' => 30,
+            'WpstormPersianToolkit\\Includes\\' => 31,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Wpstorm\\WpstormPersianToolkit\\' => 
+        'WpstormPersianToolkit\\Includes\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
@@ -22,6 +22,10 @@ class ComposerStaticInitff238b88e005219c5b24f34caf16d69c
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'WpstormPersianToolkit\\Includes\\Core\\I18n' => __DIR__ . '/../..' . '/includes/Core/I18n.php',
+        'WpstormPersianToolkit\\Includes\\Core\\Options' => __DIR__ . '/../..' . '/includes/Core/Options.php',
+        'WpstormPersianToolkit\\Includes\\Core\\Routes' => __DIR__ . '/../..' . '/includes/Core/Routes.php',
+        'WpstormPersianToolkit\\Includes\\Core\\Settings' => __DIR__ . '/../..' . '/includes/Core/Settings.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

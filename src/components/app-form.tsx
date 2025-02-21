@@ -1,38 +1,53 @@
-"use client";
+import { useEffect } from "@wordpress/element"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button"
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Switch } from "@/components/ui/switch"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Switch } from "@/components/ui/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast"
 
-import { useToast } from "@/hooks/use-toast";
-
-import { AppFormProps, FormInput } from "@/types/form";
-import AppFormHeader from "./app-form-header";
+import { AppFormProps, FormInput } from "@/types/form"
+import AppFormHeader from "./app-form-header"
+import { getOptions, saveOptions } from "@/api/api-functions"
 
 export function AppForm({ schema, defaultValues, inputs, headerInfo }: AppFormProps) {
-  const { toast } = useToast();
+  const { toast } = useToast()
 
   function onSubmit(values: any) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      )
-    });
+    try {
+      saveOptions(values, headerInfo.restRoute)
+      toast({
+        title: "Settings saved",
+        description: (
+          <div>
+            <p>Your settings have been saved.</p>
+          </div>
+        )
+      })
+    } catch (err) {
+      toast({
+        title: "An error occurred",
+        description: (
+          <div>
+            <p>Something went wrong.</p>
+          </div>
+        )
+      })
+    }
   }
 
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues
-  });
+    defaultValues: async () => {
+      const options = await getOptions(headerInfo.restRoute)
+      return options && Object.keys(options).length > 0 ? options : defaultValues // Set default values if empty
+    }
+  })
 
   const renderField = (input: FormInput, field: any) => {
     switch (input.type) {
@@ -46,10 +61,10 @@ export function AppForm({ schema, defaultValues, inputs, headerInfo }: AppFormPr
             {input.description && <FormDescription>{input.description}</FormDescription>}
             <FormMessage />
           </FormItem>
-        );
+        )
       case "switch":
         return (
-          <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+          <FormItem className="flex min-w-30 max-w-30 flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
             <div className="space-y-0.5">
               <FormLabel>{input.label}</FormLabel>
               <FormDescription>{input.description}</FormDescription>
@@ -59,7 +74,7 @@ export function AppForm({ schema, defaultValues, inputs, headerInfo }: AppFormPr
             </FormControl>
             <FormMessage />
           </FormItem>
-        );
+        )
       case "select":
         return (
           <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
@@ -83,7 +98,7 @@ export function AppForm({ schema, defaultValues, inputs, headerInfo }: AppFormPr
             </Select>
             <FormMessage />
           </FormItem>
-        );
+        )
       default:
         return (
           <FormItem>
@@ -94,9 +109,9 @@ export function AppForm({ schema, defaultValues, inputs, headerInfo }: AppFormPr
             {input.description && <FormDescription>{input.description}</FormDescription>}
             <FormMessage />
           </FormItem>
-        );
+        )
     }
-  };
+  }
 
   return (
     <div className="p-2">
@@ -110,5 +125,5 @@ export function AppForm({ schema, defaultValues, inputs, headerInfo }: AppFormPr
         </form>
       </Form>
     </div>
-  );
+  )
 }

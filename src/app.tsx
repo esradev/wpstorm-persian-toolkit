@@ -1,11 +1,11 @@
-import { Route, Routes } from "react-router-dom";
-import { useImmerReducer } from "use-immer";
+import { Route, Routes } from "react-router-dom"
+import { useImmerReducer } from "use-immer"
 
-import StateContext from "./StateContext";
-import DispatchContext from "./DispatchContext";
+import StateContext from "./StateContext"
+import DispatchContext from "./DispatchContext"
 
-import Layout from "@/layout";
-import { items } from "./lib/utils";
+import Layout from "@/layout"
+import { items } from "./lib/utils"
 
 const App = () => {
   const initialState = {
@@ -16,28 +16,28 @@ const App = () => {
     isFetching: true,
     isSaving: false,
     sendCount: 0
-  };
+  }
 
   function ourReducer(draft, action) {
     switch (action.type) {
       case "ShowConfirm":
-        draft.confirm.show = true;
-        draft.confirm.text = action.value;
-        return;
+        draft.confirm.show = true
+        draft.confirm.text = action.value
+        return
       case "HideConfirm":
-        draft.confirm.show = false;
-        draft.confirm.text = action.value;
-        return;
+        draft.confirm.show = false
+        draft.confirm.text = action.value
+        return
       case "saveRequestStarted":
-        draft.isSaving = true;
-        return;
+        draft.isSaving = true
+        return
       case "saveRequestFinished":
-        draft.isSaving = false;
-        return;
+        draft.isSaving = false
+        return
     }
   }
 
-  const [state, dispatch] = useImmerReducer(ourReducer, initialState);
+  const [state, dispatch] = useImmerReducer(ourReducer, initialState)
 
   return (
     <StateContext.Provider value={state}>
@@ -56,7 +56,7 @@ const App = () => {
         />
       </DispatchContext.Provider>
     </StateContext.Provider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

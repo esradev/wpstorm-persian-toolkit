@@ -129,8 +129,8 @@ if (! class_exists('Settings')) {
 			);
 			add_submenu_page(
 				WPSTORM_PT_SLUG,
-				__('Payamito', 'wpstorm-pt'),
-				__('Auth', 'wpstorm-pt'),
+				__('Settings', 'wpstorm-pt'),
+				__('Settings', 'wpstorm-pt'),
 				'manage_options',
 				WPSTORM_PT_SLUG,
 				[$this, 'admin_page']

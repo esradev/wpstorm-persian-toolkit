@@ -1,17 +1,16 @@
 {
-  "name": "wpstorm/wpstorm-persian-toolkit",
+  "name": "wpstorm/payamito",
   "type": "wordpress-plugin",
-  "description": "A toolkit for Persian WordPress sites, including Persian date (datepickers), Persian number, and more.",
-  "autoload": {
-    "psr-4": {
-      "Wpstorm\\WpstormPersianToolkit\\": "includes/"
-    }
-  },
   "authors": [
     {
       "name": "esradev",
       "email": "wpstormdev@gmail.com"
     }
   ],
-  "require": {}
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "WpstormPersianToolkit\\Includes\\": "includes/"
+    }
+  }
 }

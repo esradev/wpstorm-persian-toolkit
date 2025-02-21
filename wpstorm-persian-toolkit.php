@@ -104,14 +104,10 @@ if ( ! class_exists( 'WpstormPersianToolkit' ) ) {
          */
 		public function require_files(): void
 		{
-			// require_once WPSTORM_PT_DIR_PATH . 'includes/Core/I18n.php';
-			// require_once WPSTORM_PT_DIR_PATH . 'includes/Core/Routes.php';
+			require_once WPSTORM_PT_DIR_PATH . 'includes/Core/I18n.php';
+			require_once WPSTORM_PT_DIR_PATH . 'includes/Core/Routes.php';
 			require_once WPSTORM_PT_DIR_PATH . 'includes/Core/Settings.php';
-			// require_once WPSTORM_PT_DIR_PATH . 'includes/Core/Database.php';
-			// require_once WPSTORM_PT_DIR_PATH . 'includes/Core/Updater.php';
-			// require_once WPSTORM_PT_DIR_PATH . 'includes/Core/Deactivator.php';
-
-			// require_once WPSTORM_PT_DIR_PATH . 'includes/Options/Options.php';
+			require_once WPSTORM_PT_DIR_PATH . 'includes/Core/Options.php';
 		}
 	}
 
